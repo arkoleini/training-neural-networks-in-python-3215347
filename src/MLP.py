@@ -118,51 +118,95 @@ class MultiLayerPerceptron:
 
 
 #test code
+epochs = int(input("Enter number of epochs: "))
+mlp1 = MultiLayerPerceptron(layers=[7,7,1])    #Demonstrate 7 to 1 system
+mlp2 = MultiLayerPerceptron(layers=[7,7,10])   #Demonstrate 7 to 10 system
+mlp3 = MultiLayerPerceptron(layers=[7,7,7])     #Demonstrate 7 to 7 system
 
-
-# Dataset for the 7 to 1 network
+# Dataset fir the 7 to 1 network
+print("Training 7 to 1 network")
 for i in range(epochs):
     mse = 0.0
-    mse += mlp.bp([1,1,1,1,1,1,0],[0.05])    #0 pattern
-    mse += mlp.bp([0,1,1,0,0,0,0],[0.15])    #1 pattern
-    mse += mlp.bp([1,1,0,1,1,0,1],[0.25])    #2 pattern
-    mse += mlp.bp([1,1,1,1,0,0,1],[0.35])    #3 pattern
-    mse += mlp.bp([0,1,1,0,0,1,1],[0.45])    #4 pattern
-    mse += mlp.bp([1,0,1,1,0,1,1],[0.55])    #5 pattern
-    mse += mlp.bp([1,0,1,1,1,1,1],[0.65])    #6 pattern
-    mse += mlp.bp([1,1,1,0,0,0,0],[0.75])    #7 pattern
-    mse += mlp.bp([1,1,1,1,1,1,1],[0.85])    #8 pattern
-    mse += mlp.bp([1,1,1,1,0,1,1],[0.95])    #9 pattern
+    mse += mlp1.bp([1,1,1,1,1,1,0],[0.05])    #0 pattern
+    mse += mlp1.bp([0,1,1,0,0,0,0],[0.15])    #1 pattern
+    mse += mlp1.bp([1,1,0,1,1,0,1],[0.25])    #2 pattern
+    mse += mlp1.bp([1,1,1,1,0,0,1],[0.35])    #3 pattern
+    mse += mlp1.bp([0,1,1,0,0,1,1],[0.45])    #4 pattern
+    mse += mlp1.bp([1,0,1,1,0,1,1],[0.55])    #5 pattern
+    mse += mlp1.bp([1,0,1,1,1,1,1],[0.65])    #6 pattern
+    mse += mlp1.bp([1,1,1,0,0,0,0],[0.75])    #7 pattern
+    mse += mlp1.bp([1,1,1,1,1,1,1],[0.85])    #8 pattern
+    mse += mlp1.bp([1,1,1,1,0,1,1],[0.95])    #9 pattern
     mse = mse/10.0
 
 
+print("Training 7 to 10 network")
 # Dataset for the 7 to 10 network
 for i in range(epochs):
     mse = 0.0
-    mse += mlp.bp([1,1,1,1,1,1,0],[1,0,0,0,0,0,0,0,0,0])    #0 pattern
-    mse += mlp.bp([0,1,1,0,0,0,0],[0,1,0,0,0,0,0,0,0,0])    #1 pattern
-    mse += mlp.bp([1,1,0,1,1,0,1],[0,0,1,0,0,0,0,0,0,0])    #2 pattern
-    mse += mlp.bp([1,1,1,1,0,0,1],[0,0,0,1,0,0,0,0,0,0])    #3 pattern
-    mse += mlp.bp([0,1,1,0,0,1,1],[0,0,0,0,1,0,0,0,0,0])    #4 pattern
-    mse += mlp.bp([1,0,1,1,0,1,1],[0,0,0,0,0,1,0,0,0,0])    #5 pattern
-    mse += mlp.bp([1,0,1,1,1,1,1],[0,0,0,0,0,0,1,0,0,0])    #6 pattern
-    mse += mlp.bp([1,1,1,0,0,0,0],[0,0,0,0,0,0,0,1,0,0])    #7 pattern
-    mse += mlp.bp([1,1,1,1,1,1,1],[0,0,0,0,0,0,0,0,1,0])    #8 pattern
-    mse += mlp.bp([1,1,1,1,0,1,1],[0,0,0,0,0,0,0,0,0,1])    #9 pattern
+    mse += mlp2.bp([1,1,1,1,1,1,0],[1,0,0,0,0,0,0,0,0,0])    #0 pattern
+    mse += mlp2.bp([0,1,1,0,0,0,0],[0,1,0,0,0,0,0,0,0,0])    #1 pattern
+    mse += mlp2.bp([1,1,0,1,1,0,1],[0,0,1,0,0,0,0,0,0,0])    #2 pattern
+    mse += mlp2.bp([1,1,1,1,0,0,1],[0,0,0,1,0,0,0,0,0,0])    #3 pattern
+    mse += mlp2.bp([0,1,1,0,0,1,1],[0,0,0,0,1,0,0,0,0,0])    #4 pattern
+    mse += mlp2.bp([1,0,1,1,0,1,1],[0,0,0,0,0,1,0,0,0,0])    #5 pattern
+    mse += mlp2.bp([1,0,1,1,1,1,1],[0,0,0,0,0,0,1,0,0,0])    #6 pattern
+    mse += mlp2.bp([1,1,1,0,0,0,0],[0,0,0,0,0,0,0,1,0,0])    #7 pattern
+    mse += mlp2.bp([1,1,1,1,1,1,1],[0,0,0,0,0,0,0,0,1,0])    #8 pattern
+    mse += mlp2.bp([1,1,1,1,0,1,1],[0,0,0,0,0,0,0,0,0,1])    #9 pattern
     mse = mse/10.0
 
-
+print("Training 7 to 7 network")
 # Dataset for the 7 to 7 network
 for i in range(epochs):
     mse = 0.0
-    mse += mlp.bp([1,1,1,1,1,1,0],[1,1,1,1,1,1,0])    #0 pattern
-    mse += mlp.bp([0,1,1,0,0,0,0],[0,1,1,0,0,0,0])    #1 pattern
-    mse += mlp.bp([1,1,0,1,1,0,1],[1,1,0,1,1,0,1])    #2 pattern
-    mse += mlp.bp([1,1,1,1,0,0,1],[1,1,1,1,0,0,1])    #3 pattern
-    mse += mlp.bp([0,1,1,0,0,1,1],[0,1,1,0,0,1,1])    #4 pattern
-    mse += mlp.bp([1,0,1,1,0,1,1],[1,0,1,1,0,1,1])    #5 pattern
-    mse += mlp.bp([1,0,1,1,1,1,1],[1,0,1,1,1,1,1])    #6 pattern
-    mse += mlp.bp([1,1,1,0,0,0,0],[1,1,1,0,0,0,0])    #7 pattern
-    mse += mlp.bp([1,1,1,1,1,1,1],[1,1,1,1,1,1,1])    #8 pattern
-    mse += mlp.bp([1,1,1,1,0,1,1],[1,1,1,1,0,1,1])    #9 pattern
+    mse += mlp3.bp([1,1,1,1,1,1,0],[1,1,1,1,1,1,0])    #0 pattern
+    mse += mlp3.bp([0,1,1,0,0,0,0],[0,1,1,0,0,0,0])    #1 pattern
+    mse += mlp3.bp([1,1,0,1,1,0,1],[1,1,0,1,1,0,1])    #2 pattern
+    mse += mlp3.bp([1,1,1,1,0,0,1],[1,1,1,1,0,0,1])    #3 pattern
+    mse += mlp3.bp([0,1,1,0,0,1,1],[0,1,1,0,0,1,1])    #4 pattern
+    mse += mlp3.bp([1,0,1,1,0,1,1],[1,0,1,1,0,1,1])    #5 pattern
+    mse += mlp3.bp([1,0,1,1,1,1,1],[1,0,1,1,1,1,1])    #6 pattern
+    mse += mlp3.bp([1,1,1,0,0,0,0],[1,1,1,0,0,0,0])    #7 pattern
+    mse += mlp3.bp([1,1,1,1,1,1,1],[1,1,1,1,1,1,1])    #8 pattern
+    mse += mlp3.bp([1,1,1,1,0,1,1],[1,1,1,1,0,1,1])    #9 pattern
     mse = mse/10.0
+
+print("Done!\n")
+pattern = [1.2]
+# number of inputs expected (first layer size)
+num_inputs = int(mlp1.layers[0])
+prompt = "Input pattern 'a b c d e f g':"
+
+while True:
+    raw = input(prompt).strip()
+    if raw == "":
+        # empty input, ask again
+        continue
+
+    # Try to support two formats:
+    #  - space-separated values like: 0 1 1 0 0 0 0
+    #  - contiguous digit string like: 0110000
+    parts = raw.split()
+    if len(parts) == 1 and len(parts[0]) == num_inputs and all(ch in '01' for ch in parts[0]):
+        # contiguous 0/1 string
+        pattern = [float(ch) for ch in parts[0]]
+    else:
+        try:
+            pattern = list(map(float, parts))
+        except ValueError:
+            print("Invalid input. Enter space-separated numbers or a contiguous 0/1 string of length", num_inputs)
+            continue
+
+    # stop condition (first value negative)
+    if pattern and pattern[0] < 0.0:
+        break
+
+    if len(pattern) != num_inputs:
+        print(f"Please enter exactly {num_inputs} values (or a {num_inputs}-digit 0/1 string).\n")
+        continue
+
+    print()
+    print("The number recognized by the 7 to 1 network is:", int(mlp1.run(pattern)*10))
+    print("The number recognized by the 7 to 10 network is:", np.argmax(mlp2.run(pattern)))
+    print("The number recognized by the 7 to 7 network is:", [int(x) for x in (mlp3.run(pattern)+ 0.5 )], "\n")
