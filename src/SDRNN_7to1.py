@@ -1,5 +1,5 @@
 import MLP
-from MLP import MultiLayerPerceptron
+from MLP import 0104
 import tkinter as tk
 import numpy as np
 
